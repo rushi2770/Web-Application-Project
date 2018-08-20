@@ -1,0 +1,90 @@
+﻿@model MVC.Models.userFilesCollection
+
+@{
+    Layout = "~/Views/Account/_Layout.cshtml";
+    var files = ViewBag.files;
+    var error = ViewBag.Error;
+    var images = ViewBag.userImages;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UploadFiles</title>
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    @*<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <link href="~/Content/themes/base/datepicker.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+    <script>
+        $(document).ready(function () {
+            //To disable the View File option
+            var viewFiles = $("a[id='ViewFile']")
+            viewFiles.click(function () {
+                $(this).fadeTo("fast", .5).removeAttr("href");
+            });
+        });
+    </script>
+</head>
+<body>
+    @section UserNav{
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="@Url.Action("Index","Home")">Nav Header</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="@Url.Action("Home","Home",new { id = Model.UserId})">Home</a></li>
+                    <li><a href="@Url.Action("AboutUs", "Home",new { id = Model.UserId})">About Us</a></li>
+                    <li><a href="@Url.Action("Services", "Home",new { id = Model.UserId})">Services</a></li>
+                    <li><a href="@Url.Action("Industries", "Home",new { id = Model.UserId})">Industries</a></li>
+                    <li><a href="@Url.Action("Careers", "Home",new { id = Model.UserId})">Careers</a></li>
+                    <li><a href="@Url.Action("ContactUs", "Home",new { id = Model.UserId})">ContactUs</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("Upload", "Account", new { id = Model.UserId })"><span class="glyphicon glyphicon-picture"></span> Update Profile Image</a></li>
+                    <li><a href="@Url.Action("UploadFiles", "FilesCollection", new { id = Model.UserId })"><span class="glyphicon glyphicon-paperclip"></span> Update Files</a></li>
+                    <li><a href="@Url.Action("ViewProfile", "Account", new { id = Model.UserId})"><span class="glyphicon glyphicon-picture"></span> View Profile</a></li>
+                    <li><a href="@Url.Action("EditProfile", "Account",new { id = Model.UserId})"><span class="glyphicon glyphicon-edit"></span> Edit Profile</a></li>
+                    <li><a href="@Url.Action("Logout", "User")"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+
+    }
+
+    @section UserBody{
+    @using (Html.BeginForm("UploadFiles", "FilesCollection", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(model => model.UserId)
+        <table>
+            <tr>
+                <td>Select File : </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.Files, new { type = "file", multiple = "multiple", @class = "form-control" })
+                    @Html.ValidationMessage("FileName", new { @class = "text-danger" })
+                </td>
+
+                <td>
+                    <input type="submit" value="Upload" class="btn btn-default" />
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                    <input type="reset" value="Reset" class="btn btn-danger" />
+                </td>
+            </tr>
+        </table>
+    }
+    @{ Html.RenderPartial("_UploadedFilesList");}
+ @{ Html.RenderPartial("_UploadedImages");}
+        }
+
+</body>
+
+</html>

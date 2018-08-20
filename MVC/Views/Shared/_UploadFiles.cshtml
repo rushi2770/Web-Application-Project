@@ -1,0 +1,22 @@
+﻿@model MVC.Models.userFilesCollection
+    @{ 
+        var userId = ViewBag.userId;
+    }
+@using (Html.BeginForm("UploadFiles", "FilesCollection", FormMethod.Post,new { id = userId,enctype = "multipart/form-data" }))
+{
+       
+    <table>
+        <tr>
+            <td>Select File : </td>
+            <td>
+
+                @Html.TextBoxFor(Model => Model.Files, new { type = "file", style = "border:1px solid black" })
+                @Html.ValidationMessage("CustomError")
+            </td>
+
+            <td>
+                <input type="submit" value="Upload" />
+            </td>
+        </tr>
+    </table> 
+}

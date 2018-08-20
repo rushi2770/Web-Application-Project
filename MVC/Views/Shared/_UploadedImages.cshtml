@@ -1,0 +1,12 @@
+﻿<h2>Images</h2>
+<div class="row">
+    @foreach (var item in ViewBag.userImages)
+    {
+        <div class="col-sm-4">
+            <strong>@item.FileName</strong>
+            <img class="img-responsive" src="data:image/png;base64,@Convert.ToBase64String(item.FileData, 0, item.FileData.Length)" style="height:200px" />
+        </div>
+                    <br />
+    }
+</div>
+

@@ -1,0 +1,27 @@
+﻿@model MVC.Models.userPersonalDetails
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Account/_Layout.cshtml";
+}
+
+    <h2 style="width:100%">Welcome to User Home Page</h2>
+    @using (Html.BeginForm())
+    {
+        <h3></h3><br />
+        <text>This is the Homepage of the user which is different from company Homepage</text>
+    }
+
+    @section Picture{
+    @{Html.RenderPartial("_Picture");}
+    
+    
+    }
+    @section About{
+@{Html.RenderPartial("_About", Model);}
+    }
+    @section ContactUs{
+        @{Html.RenderPartial("_ContactUs");}
+    }
+
+

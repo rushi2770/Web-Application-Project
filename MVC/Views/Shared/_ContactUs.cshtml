@@ -1,0 +1,55 @@
+﻿
+<h2>Contact Us</h2>
+@using (Html.BeginForm("ContactUs", "Home", FormMethod.Post))
+{
+<label>Email</label><br />
+if (ViewBag.email == null)
+{
+    <input type="text" width="50" /><br />
+}
+else
+{
+    <input type="text" width="50" value="@ViewBag.email"/><br />
+}
+<label>Comments</label><br />
+<textarea rows="5" placeholder="Please enter your questions. We will reach you within 24 hours with appropriate solution" id="Comments"></textarea>
+<br />
+<input class="btn btn-default"type="submit" value="Submit"/><br />
+<br />
+<label>Connect socially with us</label><br />
+    <!--Facebook-->
+
+<a href="https://www.facebook.com/" class="btn-floating btn-lg btn-fb" title="facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+<!--Twitter-->
+<a href="https://twitter.com/?lang=en" class="btn-floating btn-lg btn-tw" title="twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+<!--Google +-->
+<a href="https://plus.google.com/u/0/?tab=wX" class="btn-floating btn-lg btn-gplus" title="google+" target="_blank"><i class="fa fa-google-plus"></i></a>
+<!--Linkedin-->
+<a href="https://www.linkedin.com/feed/" class="btn-floating btn-lg btn-li" title="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+<br />
+<br />
+
+}
+<div>
+    @*<!--Instagram-->
+        <a href="#" class="btn-floating btn-lg btn-ins"><i class="fa fa-instagram"></i></a>
+        <!--Pinterest-->
+        <a href="#" class="btn-floating btn-lg btn-pin"><i class="fa fa-pinterest"></i></a>
+        <!--Youtube-->
+        <a href="#" class="btn-floating btn-lg btn-yt"><i class="fa fa-youtube"></i></a>
+        <!--Dribbble-->
+        <a href="#" class="btn-floating btn-lg btn-dribbble"><i class="fa fa-dribbble"></i></a>
+        <!--Vkontakte-->
+        <a href="#" class="btn-floating btn-lg btn-vk"><i class="fa fa-vk"></i></a>
+        <!--Stack Overflow-->
+        <a href="#" class="btn-floating btn-lg btn-so"><i class="fa fa-stack-overflow"></i></a>
+        <!--Slack-->
+        <a href="#" class="btn-floating btn-lg btn-slack"><i class="fa fa-slack"></i></a>
+        <!--Github-->
+        <a href="#" class="btn-floating btn-lg btn-git"><i class="fa fa-github"></i></a>
+        <!--Comments-->
+        <a href="#" class="btn-floating btn-lg btn-comm"><i class="fa fa-comments"></i></a>
+        <!--Email-->
+        <a href="#" class="btn-floating btn-lg btn-email"><i class="fa fa-envelope"></i></a>*@
+
+</div>

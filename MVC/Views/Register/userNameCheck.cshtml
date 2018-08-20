@@ -1,0 +1,70 @@
+﻿@model MVC.Models.userLoginDetails
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>userNameCheck</title>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        function checkuserName() {
+            console.log('rushi');
+            //var url = "/DataQuad/Register/ReverseTheString";
+            //var stringToReverse = "Bob Cravens";
+            //$.get(url, { input: stringToReverse }, function (data) {
+            //    $("#reverseTheString").html(data);
+            //});
+            $('#userName').blur(function () {
+                var userName = $(this).val();
+                console.log(userName);
+                $('#spanE').text(userName);
+                if (userName.length>=1) {
+
+                    $.ajax({
+                        url: '/DataQuadInc/Register/GetAvailableUserName',
+                        method: 'GET',
+                        data: {name : userName },
+                        datatype: 'json',       
+                        success: function (data) {
+                            var divElement = $('#divElement');
+                            var spanElement = $('#spanE');
+                            var linkElement = $('#linkElement');
+                            if (data.UserNameInUse) {
+                                divElement.text(userName + 'already in use');
+                                spanElement.text(data.userName + 'available');
+                            } else {
+                                divElement.text(data.userName + ' available');
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                        alert(xhr.responseText);
+                        alert(status);
+                        alert(error);                        
+                    }
+                    });
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="reverseTheString"></div>
+    <div id="divuserName"> 
+        @Html.EditorFor(model => model.userName, new { htmlAttributes = new { onchange = "checkuserName()"} })
+        <span id="spanE"></span>
+    </div>
+    <div id="divElement">
+
+        <span id="spanElement"></span>
+        <a id="linkElement" href="#"></a>
+    </div>
+    
+</body>
+</html>

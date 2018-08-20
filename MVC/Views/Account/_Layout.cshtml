@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Web Application.</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/datepicker.css" rel="stylesheet" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/CustomJavaScript.js"></script>
+    <link href="~/Content/CustomStyleSheets.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="header">
+        <span>
+            <img src="~/Images/logo.jpg" alt="Logo" style="position:absolute; top:20px; left:20px; width:200px; height: 100px; padding:10px" />
+        </span>
+        Web Application
+    </div>
+    @if (IsSectionDefined("UserNav"))
+    {
+        @RenderSection("UserNav", false)
+    }
+    else
+    {
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="@Url.Action("Index","Home")">Nav Header</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="@Url.Action("Home","Home",new { id = Model.userId})">Home</a></li>
+                        <li><a href="@Url.Action("AboutUs", "Home", new { id = Model.userId })">About Us</a></li>
+                        <li><a href="@Url.Action("Services", "Home", new { id = Model.userId })">Services</a></li>
+                        <li><a href="@Url.Action("Industries", "Home", new { id = Model.userId })">Industries</a></li>
+                        <li><a href="@Url.Action("Careers", "Home", new { id = Model.userId })">Careers</a></li>
+                        <li><a href="@Url.Action("ContactUs", "Home", new { id = Model.userId })">ContactUs</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Upload", "Account", new { id = Model.userId })"><span class="glyphicon glyphicon-picture"></span> Update Profile Image</a></li>
+                        <li><a href="@Url.Action("UploadFiles", "FilesCollection", new { id = Model.userId })"><span class="glyphicon glyphicon-paperclip"></span> Update Files</a></li>
+                        <li><a href="@Url.Action("ViewProfile", "Account", new { id = Model.userId})"><span class="glyphicon glyphicon-picture"></span> View Profile</a></li>
+                        <li><a href="@Url.Action("EditProfile", "Account",new { id = Model.userId})"><span class="glyphicon glyphicon-edit"></span> Edit Profile</a></li>
+                        <li><a href="@Url.Action("Logout", "User")"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    
+    }
+    @if (IsSectionDefined("UserBody"))
+    {
+        <div class="card">
+            @RenderSection("UserBody", false)
+            @RenderBody()
+        </div>
+    }
+    else
+    {
+
+            <div class="row">
+                <div class="leftcolumn">
+                    <div class="card">
+                        @RenderBody()
+                    </div>
+                </div>
+                <div class="rightcolumn">
+                    @if (@IsSectionDefined("Picture"))
+                    {
+                        <div class="card">
+                            @RenderSection("Picture", false)
+                        </div>
+                    }
+                    @if (IsSectionDefined("About"))
+                    {
+                        <div class="card">
+                            @RenderSection("About", false)
+                        </div>
+                    }
+                    @if (IsSectionDefined("ContactUs"))
+                    {
+                        <div class="card">
+                            @RenderSection("ContactUs", false)
+                        </div>
+                    }
+                </div>
+            </div>
+    }
+
+            <div class="footer">
+                <p>&copy; @DateTime.Now.Year - Designed by Rushi Creative Works</p>
+            </div>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Careers";
+}
+
+
+@section UserBody{
+<h2>Careers</h2>    
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal col-md-12">
+        <div class="form-group col-md-offset-5 col-md-7">
+            Apply for new job?
+        </div>
+        <div class="form-group col-md-offset-5 col-md-7">
+            @Html.ActionLink("Click Here", "Registration", "User") to Register and apply.
+        </div>
+        <div class="form-group col-md-offset-5 col-md-7">
+            If you already have a account @Html.ActionLink("Login", "Login", "User")
+        </div>
+        </div>
+    }
+}

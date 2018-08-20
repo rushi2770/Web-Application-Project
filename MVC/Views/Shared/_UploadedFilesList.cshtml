@@ -1,0 +1,76 @@
+﻿@{ 
+    var files = ViewBag.files;
+}
+<h2>Uploaded Files</h2><br />
+
+<table id="myTable" class="table table-responsive">
+    <thead>
+        <tr>
+            <th>
+                File Name
+            </th>
+            <th>
+                File Size
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in files)
+            {
+
+            <tr>
+                <td>
+                    <span>@item.FileName</span> &nbsp;&nbsp;
+                </td>
+                <td>
+                    @{
+                        double size = (double)@item.FileSize / 1000;
+
+                    }
+                    @if (size <= 1)
+                    {
+                        //double sizeKb = @size;
+                        @Math.Round(@size * 1000, 2); <text>bytes</text>
+                    }
+                    else
+                    {
+                        if (size >= 1000)
+                        {
+                            double sizeMB = size / 1000;
+                            @Math.Round(sizeMB, 2) <text>MB</text>
+                        }
+                        else
+                        {
+                            @Math.Round(size, 2) <text>KB</text>
+                        }
+                    }
+
+                </td>
+                @if (item.FileContentType == "image/jpeg" || item.FileContentType == "image/png")
+                {
+                    <td>
+                        @*@Html.ActionLink("RenameFile popup ", "FilesCollection", new { fileId = item.FileId }, new {  data_toggle = "modal", data_target = "#myModal", data_id = item.FileId, type= "button" })*@
+                        <a href="@Url.Action("RenameFile","FilesCollection",new { fileId = item.FileId })" target="_self">Rename</a>&nbsp;&nbsp;&nbsp;
+                        <a href="@Url.Action("ViewImage", "FilesCollection", new { fileId = item.FileId })" target="_self">View Image</a>&nbsp;&nbsp;&nbsp;
+                        <a href="@Url.Action("DeleteFile", "FilesCollection", new { fileId = item.FileId })" target="_self">Delete</a>&nbsp;&nbsp;&nbsp;
+                        <a href="@Url.Action("DownloadFile", "FilesCollection", new { fileId = item.FileId })"><span class="glyphicon glyphicon-save"></span></a>&nbsp;&nbsp;Download Image
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <a href="@Url.Action("RenameFile","FilesCollection",new { fileId = item.FileId })" target="_self">Rename</a>&nbsp;&nbsp;&nbsp;
+                        <a id="ViewFile" href="#" target="_self" title="Viewing a File is Not available ">View File</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="@Url.Action("DeleteFile", "FilesCollection", new { fileId = item.FileId })" target="_self">Delete</a>&nbsp;&nbsp;&nbsp;
+                        <a href="@Url.Action("DownloadFile", "FilesCollection", new { fileId = item.FileId })"><span class="glyphicon glyphicon-save"></span></a>&nbsp;&nbsp;Download File
+                    </td>
+                }
+            </tr>
+                        }
+    </tbody>
+</table>
+

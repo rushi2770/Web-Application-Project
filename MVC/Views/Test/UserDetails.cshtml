@@ -1,0 +1,90 @@
+﻿@model MVC.WCFService.userDetailsModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UserDetails</title>
+</head>
+<body>
+    <div>
+        <h4>userDetails</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.emailId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.emailId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.dateOfBirth)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.dateOfBirth)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.password)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.password)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.isEmailVerified)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.isEmailVerified)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.activationCode)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.activationCode)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.resetPasswordCode)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.resetPasswordCode)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.userId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

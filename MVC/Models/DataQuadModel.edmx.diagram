@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d9e3118723ab4f60a47346d3fb78e036" Name="Diagram1" ZoomLevel="114">
+        <EntityTypeShape EntityType="DataquadModel.userLoginDetails" Width="2" PointX="1" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataquadModel.userProfileImages" Width="1.5" PointX="3.25" PointY="4.625" />
+        <AssociationConnector Association="DataquadModel.FK_tbl_userProfileImages_tbl_userLoginDetails" />
+        <EntityTypeShape EntityType="DataquadModel.userFilesCollection" Width="1.5" PointX="3.75" PointY="7.75" />
+        <AssociationConnector Association="DataquadModel.FK_tbl_userFilesCollection_tbl_userLoginDetails" />
+        <EntityTypeShape EntityType="DataquadModel.userDetails" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DataquadModel.userPersonalDetails" Width="1.5" PointX="3" PointY="12" />
+        <AssociationConnector Association="DataquadModel.FK_tbl_userPersonalDetail_tbl_userDetails" />
+        <EntityTypeShape EntityType="DataquadModel.Race" Width="1.5" PointX="4.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

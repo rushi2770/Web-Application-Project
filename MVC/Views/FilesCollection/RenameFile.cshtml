@@ -1,0 +1,36 @@
+﻿@model MVC.Models.userFilesCollection
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RenameFile</title>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script>
+        $(function () {
+            $('#cancel').click(function () {
+                var url = '@Url.Action("ViewProfile","Account", new { id =  Model.UserId} )';
+                window.location.href = url;
+            });
+        })
+    </script>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm("RenameFile","FilesCollection", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.HiddenFor(model => model.FileId)
+            @Html.Label("File Name")<br />
+            @Html.EditorFor(model => model.FileName, "", new { htmlAttributes = new { @class = "form-control" } })<br />
+            <input type="submit" value="Save" class="btn btn-outline-success" />
+            <input id="cancel" type="reset" value="cancel" class="btn btn-outline-danger" />
+        }
+        
+    </div>
+    
+</body>
+</html>

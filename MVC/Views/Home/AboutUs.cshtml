@@ -1,0 +1,12 @@
+﻿@model MVC.Models.userPersonalDetails
+@{
+    ViewBag.Title = "About";
+    if(Model.userId != null)
+    {
+        Layout = "~/Views/Account/_Layout.cshtml";
+    }
+}
+
+@section UserBody{
+<h2>About View</h2>
+}

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DataQuadService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFService" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WCFService.DataAccessLayer" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/WCFService.Models" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Web" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDataQuadService_GetUserDetailByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserDetailByUserId" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_GetUserDetailByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserDetailByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_sample_InputMessage">
+    <wsdl:part name="parameters" element="tns:sample" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_sample_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sampleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_RegisterUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_RegisterUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_GetProfileImageByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfileImageByUserId" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_GetProfileImageByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfileImageByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_SaveProfileImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProfileImage" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_SaveProfileImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProfileImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_GetPersonalDetailByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonalDetailByUserId" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_GetPersonalDetailByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonalDetailByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_SavePersonalDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SavePersonalDetail" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_SavePersonalDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SavePersonalDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_GetAllRaces_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRaces" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_GetAllRaces_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRacesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_GetAllFilesByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFilesByUserId" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_GetAllFilesByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFilesByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_GetFileByFileId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileByFileId" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_GetFileByFileId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileByFileIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_SaveFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveFile" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_SaveFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_DeleteFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFile" />
+  </wsdl:message>
+  <wsdl:message name="IDataQuadService_DeleteFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDataQuadService">
+    <wsdl:operation name="GetUserDetailByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQuadService/GetUserDetailByUserId" message="tns:IDataQuadService_GetUserDetailByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQuadService/GetUserDetailByUserIdResponse" message="tns:IDataQuadService_GetUserDetailByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="sample">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQuadService/sample" message="tns:IDataQuadService_sample_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQuadService/sampleResponse" message="tns:IDataQuadService_sample_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQuadService/RegisterUser" message="tns:IDataQuadService_RegisterUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQuadService/RegisterUserResponse" message="tns:IDataQuadService_RegisterUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProfileImageByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQuadService/GetProfileImageByUserId" message="tns:IDataQuadService_GetProfileImageByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQuadService/GetProfileImageByUserIdResponse" message="tns:IDataQuadService_GetProfileImageByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProfileImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQuadService/SaveProfileImage" message="tns:IDataQuadService_SaveProfileImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQuadService/SaveProfileImageResponse" message="tns:IDataQuadService_SaveProfileImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonalDetailByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQuadService/GetPersonalDetailByUserId" message="tns:IDataQuadService_GetPersonalDetailByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQuadService/GetPersonalDetailByUserIdResponse" message="tns:IDataQuadService_GetPersonalDetailByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePersonalDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQuadService/SavePersonalDetail" message="tns:IDataQuadService_SavePersonalDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQuadService/SavePersonalDetailResponse" message="tns:IDataQuadService_SavePersonalDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRaces">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQuadService/GetAllRaces" message="tns:IDataQuadService_GetAllRaces_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQuadService/GetAllRacesResponse" message="tns:IDataQuadService_GetAllRaces_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFilesByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQuadService/GetAllFilesByUserId" message="tns:IDataQuadService_GetAllFilesByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQuadService/GetAllFilesByUserIdResponse" message="tns:IDataQuadService_GetAllFilesByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileByFileId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQuadService/GetFileByFileId" message="tns:IDataQuadService_GetFileByFileId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQuadService/GetFileByFileIdResponse" message="tns:IDataQuadService_GetFileByFileId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQuadService/SaveFile" message="tns:IDataQuadService_SaveFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQuadService/SaveFileResponse" message="tns:IDataQuadService_SaveFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataQuadService/DeleteFile" message="tns:IDataQuadService_DeleteFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataQuadService/DeleteFileResponse" message="tns:IDataQuadService_DeleteFile_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDataQuadService" type="tns:IDataQuadService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserDetailByUserId">
+      <soap:operation soapAction="http://tempuri.org/IDataQuadService/GetUserDetailByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sample">
+      <soap:operation soapAction="http://tempuri.org/IDataQuadService/sample" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <soap:operation soapAction="http://tempuri.org/IDataQuadService/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfileImageByUserId">
+      <soap:operation soapAction="http://tempuri.org/IDataQuadService/GetProfileImageByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProfileImage">
+      <soap:operation soapAction="http://tempuri.org/IDataQuadService/SaveProfileImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonalDetailByUserId">
+      <soap:operation soapAction="http://tempuri.org/IDataQuadService/GetPersonalDetailByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePersonalDetail">
+      <soap:operation soapAction="http://tempuri.org/IDataQuadService/SavePersonalDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRaces">
+      <soap:operation soapAction="http://tempuri.org/IDataQuadService/GetAllRaces" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFilesByUserId">
+      <soap:operation soapAction="http://tempuri.org/IDataQuadService/GetAllFilesByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileByFileId">
+      <soap:operation soapAction="http://tempuri.org/IDataQuadService/GetFileByFileId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveFile">
+      <soap:operation soapAction="http://tempuri.org/IDataQuadService/SaveFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <soap:operation soapAction="http://tempuri.org/IDataQuadService/DeleteFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataQuadService">
+    <wsdl:port name="BasicHttpBinding_IDataQuadService" binding="tns:BasicHttpBinding_IDataQuadService">
+      <soap:address location="http://localhost:8080/DataQuadService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

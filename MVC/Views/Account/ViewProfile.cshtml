@@ -1,0 +1,39 @@
+﻿@model MVC.Models.userPersonalDetails
+
+@{
+    ViewBag.Title = "Profile";
+    var files = ViewBag.files;
+    Layout = "~/Views/Account/_Layout.cshtml";
+}
+<head>
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <link href="~/Content/themes/base/datepicker.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //To disable the View File option
+            var viewFiles = $("a[id='ViewFile']")
+            viewFiles.click(function () {
+                $(this).fadeTo("fast", .5).removeAttr("href");
+            });
+        });
+    </script>
+
+</head>
+
+
+<h2>Profile Details</h2>
+<h5><a href="@Url.Action("PrintProfile", "Account", new { id = @ViewBag.userId })">Print</a></h5>
+
+<body>
+   
+    @section Picture{
+        @{Html.RenderPartial("_Picture");}
+    }
+    @{Html.RenderPartial("_About", Model);}
+
+    <br />
+@{ Html.RenderPartial("_UploadedFilesList");}
+</body>

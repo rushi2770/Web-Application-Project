@@ -1,0 +1,93 @@
+﻿@model MVC.Models.userLoginDetails
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Account/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-1.12.4.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    function emailCheck() {
+        $("#Status").html("Checking...");
+        $.post("@Url.Action("IsEmailIdAvailable","Register")",
+            {
+                emailData: $("#email").val()
+            },
+            function (data) {
+                if (data != 0) {
+                    $("#Status").html('<font color="Green"> Availabe </font>');
+                    $("#email").css("border-color", "Green");
+
+                } else {
+                    $("#Status").html('<font color="Red"> Not Availabe. Try another</font>');
+                    $("#email").css("border-color", "Red");
+                }   
+            });
+    }
+</script>
+@section UserNav{
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            @*<div class="navbar-header">
+                    <a class="navbar-brand" href="@Url.Action("Index","Home")">DataQuad</a>
+                </div>*@
+            <ul class="nav navbar-nav">
+                <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                <li><a href="@Url.Action("AboutUs", "Home")">About Us</a></li>
+                <li><a href="@Url.Action("Services", "Home")">Services</a></li>
+                <li><a href="@Url.Action("Industries", "Home")">Industries</a></li>
+                <li><a href="@Url.Action("Careers", "Home")">ContactUs</a></li>
+                <li><a href="@Url.Action("ContactUs", "Home")">ContactUs</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="@Url.Action("Index", "Account")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+  
+    </nav>
+}
+<div>
+    @using (Html.BeginForm("Index", "Register", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="input-group col-md-offset-2 col-md-6">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                @Html.EditorFor(model => model.userName, new { htmlAttributes = new { @class = "form-control col-md-4", placeholder = "User Name" } })
+                <span id="result" />
+            </div>
+
+            <div>
+                <label class="col-md-offset-2 col-md-6" style="color:red">@Html.ValidationMessageFor(model => model.userName)</label>
+            </div>
+
+            <div class="input-group col-md-offset-2 col-md-6">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })
+            </div>
+            <div>
+                <label class="col-md-offset-2 col-md-6" style="color:red">@Html.ValidationMessageFor(model => model.password)</label>
+            </div>
+            <div class="input-group col-md-offset-2 col-md-6">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", placeholder = "Confirm Password" } })
+            </div>
+            <div><label class="col-md-offset-2 col-md-6" style="color:red">@Html.ValidationMessageFor(model => model.ConfirmPassword)</label></div>
+            <div class="input-group col-md-offset-2 col-md-6">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email", onchange = "emailCheck()" } })
+            </div>
+            <div class="row">
+                <div class="input-group col-md-offset-2 col-md-6">
+                    <p id="Status"></p>
+                </div>
+
+            </div>
+            @*<div><label class="col-md-offset-2 col-md-6" style="color:red">@Html.ValidationMessageFor(model => model.email)</label></div>*@
+        </div>
+        <div class="row col-md-offset-2 col-md-2">
+            <input class="btn btn-default" type="submit" value="Register" name="Sign Up" />
+        </div>
+
+    }
+</div>

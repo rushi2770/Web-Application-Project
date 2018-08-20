@@ -1,0 +1,9 @@
+﻿<h2>Profile Picture:</h2>
+@if (ViewBag.userImages != null)
+{
+    <img class="fakeimg" src="data:image/png;base64,@Convert.ToBase64String(ViewBag.userImages.ImageData,0,ViewBag.userImages.ImageData.Length)" alt="user image" height="400" width="100" />
+}
+else
+{
+    <text>No image to display</text>
+}

@@ -1,0 +1,33 @@
+﻿@model MVC.Models.userPersonalDetails
+    @{
+        if (Model == null)
+        {
+            <body>Default about partial view</body>    
+        }
+        else
+        {
+            <h2>Details</h2>
+
+            <table class="table table-responsive">
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.TechnologyIntersted)</td>
+                    <td>@Html.DisplayFor(model => model.TechnologyIntersted)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Gender)</td>
+                    <td>@Html.DisplayFor(model => model.Gender)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Race)</td>
+                    <td>@Html.DisplayFor(model => model.Race)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Ethnicity)</td>
+                    <td>@Html.DisplayFor(model => model.Ethnicity)</td>
+                </tr>
+
+            </table>
+        }
+
+
+    }

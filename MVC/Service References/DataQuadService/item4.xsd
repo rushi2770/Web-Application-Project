@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/WCFService.DataAccessLayer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCFService.DataAccessLayer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Web" />
+  <xs:complexType name="ArrayOftbl_userPersonalDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_userPersonalDetail" nillable="true" type="tns:tbl_userPersonalDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_userPersonalDetail" nillable="true" type="tns:ArrayOftbl_userPersonalDetail" />
+  <xs:complexType name="tbl_userPersonalDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ethnicity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Race" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TechnologyIntersted" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="tbl_userDetails" nillable="true" type="tns:tbl_userDetails" />
+      <xs:element minOccurs="0" name="userId" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_userPersonalDetail" nillable="true" type="tns:tbl_userPersonalDetail" />
+  <xs:complexType name="tbl_userDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="activationCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="dateOfBirth" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="emailId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isEmailVerified" type="xs:boolean" />
+      <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="resetPasswordCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_userPersonalDetail" nillable="true" type="tns:ArrayOftbl_userPersonalDetail" />
+      <xs:element minOccurs="0" name="userId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_userDetails" nillable="true" type="tns:tbl_userDetails" />
+  <xs:complexType name="tbl_userProfileImages">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Web" minOccurs="0" name="File" nillable="true" type="q1:HttpPostedFileBase" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ImageData" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="ImageId" type="xs:int" />
+      <xs:element minOccurs="0" name="ImageSize" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="tbl_userLoginDetails" nillable="true" type="tns:tbl_userLoginDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_userProfileImages" nillable="true" type="tns:tbl_userProfileImages" />
+  <xs:complexType name="tbl_userLoginDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_userFilesCollection" nillable="true" type="tns:ArrayOftbl_userFilesCollection" />
+      <xs:element minOccurs="0" name="tbl_userProfileImages" nillable="true" type="tns:ArrayOftbl_userProfileImages" />
+      <xs:element minOccurs="0" name="userId" type="xs:int" />
+      <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_userLoginDetails" nillable="true" type="tns:tbl_userLoginDetails" />
+  <xs:complexType name="ArrayOftbl_userFilesCollection">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_userFilesCollection" nillable="true" type="tns:tbl_userFilesCollection" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_userFilesCollection" nillable="true" type="tns:ArrayOftbl_userFilesCollection" />
+  <xs:complexType name="tbl_userFilesCollection">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileContentType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileData" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="FileExtension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileId" type="xs:int" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileSize" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="tbl_userLoginDetails" nillable="true" type="tns:tbl_userLoginDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_userFilesCollection" nillable="true" type="tns:tbl_userFilesCollection" />
+  <xs:complexType name="ArrayOftbl_userProfileImages">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_userProfileImages" nillable="true" type="tns:tbl_userProfileImages" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_userProfileImages" nillable="true" type="tns:ArrayOftbl_userProfileImages" />
+  <xs:complexType name="ArrayOftbl_race">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_race" nillable="true" type="tns:tbl_race" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_race" nillable="true" type="tns:ArrayOftbl_race" />
+  <xs:complexType name="tbl_race">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="raceId" type="xs:int" />
+      <xs:element minOccurs="0" name="raceName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_race" nillable="true" type="tns:tbl_race" />
+</xs:schema>

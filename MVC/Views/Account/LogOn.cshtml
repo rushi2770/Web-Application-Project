@@ -1,0 +1,55 @@
+﻿@model MVC.Models.userPersonalDetails
+@{
+    if (Model.id == 0)
+    {
+        Response.Redirect("~/Home/Index");
+    }
+    ViewBag.Title = "LogOn";
+    Layout = "~/Views/Account/_Layout.cshtml";
+    var Name = @ViewBag.firstName;
+}
+
+<body>
+    <h2>This is Log On page of @Name</h2>    
+    @section Picture{
+        @*<h2>Profile Picture:</h2>
+        @if (ViewBag.userImages != null)
+        {
+            <img class="fakeimg" src="data:image/png;base64,@Convert.ToBase64String(ViewBag.userImages.ImageData,0,ViewBag.userImages.ImageData.Length)" alt="user image" height="400" width="100" />
+        }else
+        {
+            <text>No image to display</text>
+        }*@
+        @{Html.RenderPartial("_Picture");}
+        }
+    @section About{
+    @{Html.RenderPartial("_About", Model);}
+        @*<table border="0">
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.firstName)</td>
+                <td>@Html.DisplayFor(model => model.firstName)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.lastName)</td>
+                <td>@Html.DisplayFor(model => model.lastName)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.dateOfBirth)</td>
+                <td>@Html.DisplayFor(model => model.dateOfBirth)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.age)</td>
+                <td>@Html.DisplayFor(model => model.age)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.gender)</td>
+                <td>@Html.DisplayFor(model => model.gender)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.nationality)</td>
+                <td>@Html.DisplayFor(model => model.nationality)</td>
+            </tr>
+        </table>*@
+    }
+</body>
+  
